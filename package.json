@@ -1,5 +1,5 @@
 {
-  "name": "stateMachine"
+  "name": "state-machine"
 , "description": "Simple JavaScript State Machine Library"
 , "keywords": [
     "statemachine"
