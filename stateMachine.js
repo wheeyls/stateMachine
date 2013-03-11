@@ -1,4 +1,22 @@
-(function (exports) {
+/*global exports define */
+
+(function (definition) {
+  "use strict";
+
+  // AMD
+  if (typeof define === "function") {
+    define(definition);
+
+  // CommonJS
+  } else if (typeof exports === "object") {
+    definition(exports);
+
+  // Browser
+  } else {
+    definition(window);
+  }
+
+}(function (exports) {
   "use strict";
 
   function is(obj, name) {
@@ -119,10 +137,13 @@
   }
 
   stateMachine.old = exports.stateMachine;
-  exports.stateMachine = stateMachine;
 
   stateMachine.noConflict = function () {
     exports.stateMachine = stateMachine.old;
     return stateMachine;
   };
-}(this));
+
+  exports.stateMachine = stateMachine;
+
+  return stateMachine;
+}));

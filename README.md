@@ -5,6 +5,18 @@ A simple state machine library. Loosely based on the ruby library aasm.
 
 Example
 -------
+### Loading
+
+#### Node
+    var stateMachine = require('state-machine').stateMachine;
+
+#### Browser
+    (function (stateMachine) {
+      
+    }(window.stateMachine));
+
+#### Define States and Events
+
     var myStates = stateMachine(function () {
       this.state('young', { initial: true })
         .state('middleage')
