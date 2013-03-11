@@ -1,5 +1,6 @@
 StateMachine.js
----------------
+===============
+
 A simple state machine library. Loosely based on the ruby library aasm.
 
 Example
@@ -22,13 +23,23 @@ Example
     myStates.enlightened();
     console.log(myState.currentState()); // bliss
 
-Chainable API
--------------
-You can modify an existing statemachine at any time by calling build()
+API
+---
+Pick your poison:
+
+### Callback
+
+    var myStates = stateMachine(function (builder) {
+      builder.state('young', { initial: true })
+             .event(...)
+    });
+
+### Chain
 
     var myStates = stateMachine();
 
-    myStates.build()
+    myStates
+      .build()
       .state('young', { initial: true })
       .event()
       ...
