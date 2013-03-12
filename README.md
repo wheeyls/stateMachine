@@ -6,7 +6,7 @@ A simple state machine library. Loosely based on the ruby library aasm.
 Example
 -------
 ### Node
-    var stateMachine = require('state-machine').stateMachine;
+    var stateMachine = require('state-machine');
     // do stuff
 
 ### Browser
