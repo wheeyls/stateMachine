@@ -1,7 +1,7 @@
 /*global exports module define */
 
 (function () {
-  "use strict";
+  'use strict';
 
   (function exporter(name, definition) {
     var old, lib;
