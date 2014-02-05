@@ -1,0 +1,22 @@
+{
+  "name": "state-machine",
+  "main": "stateMachine.js",
+  "version": "0.0.3",
+  "homepage": "https://github.com/wheeyls/stateMachine",
+  "authors": [
+    "Michael Wheeler <mwheeler@g2crowd.com>"
+  ],
+  "description": "A simple state machine library. Loosely based on the ruby library aasm.",
+  "keywords": [
+    "state-machine",
+    "statemachine"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
