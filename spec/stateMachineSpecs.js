@@ -123,7 +123,7 @@
     ;
 
     newStates.fall({some: 'data'});
-    q.equal(_in, [{some: 'data'}]);
+    q.equal(_in, {'0': {some: 'data'}});
   });
 
   test('does not overwrite existing properties', function () {
