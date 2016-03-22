@@ -61,7 +61,7 @@
 
       function buildEventShortcut(name) {
         states[name] = states[name] || function () {
-          states.trigger(name);
+          states.trigger(name, arguments);
         };
       }
 
@@ -114,18 +114,18 @@
           return curr && curr.name;
         }
 
-      , setState: function (name) {
+      , setState: function (name, args) {
           var prev = me.currentState(true);
           currentState = me._states[name];
 
           me.onChange(me.currentState(), prev.name);
-          is(currentState.enter, 'Function') && currentState.enter();
+          is(currentState.enter, 'Function') && currentState.enter(args);
           is(prev.leave, 'Function') && prev.leave();
         }
 
-      , trigger: function (eventName) {
+      , trigger: function (eventName, args) {
           var nextState = me.currentState(true).events[eventName];
-          nextState && me.setState(nextState);
+          nextState && me.setState(nextState, args);
         }
 
       , _states: {}

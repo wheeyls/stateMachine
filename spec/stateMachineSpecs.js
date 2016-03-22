@@ -113,6 +113,19 @@
     ok(_out);
   });
 
+  test('enter methods is called with event arguments', function () {
+    var _in;
+    newStates.build()
+      .state('simple', {
+        enter: function (data) { _in = data }
+      })
+    .event('fall', 'young', 'simple')
+    ;
+
+    newStates.fall({some: 'data'});
+    q.equal(_in, [{some: 'data'}]);
+  });
+
   test('does not overwrite existing properties', function () {
     var st = states(function () {
       this.state('simple');
