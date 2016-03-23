@@ -113,7 +113,7 @@
     ok(_out);
   });
 
-  test('enter methods is called with event arguments', function () {
+  test('enter method is called with event method parameters', function () {
     var _in;
     newStates.build()
       .state('simple', {
