@@ -61,7 +61,9 @@
 
       function buildEventShortcut(name) {
         states[name] = states[name] || function () {
-          states.trigger(name, arguments);
+          var args = Array.prototype.slice.call(arguments);
+          var arr = args.sort();
+          states.trigger(name, arr);
         };
       }
 
@@ -119,7 +121,7 @@
           currentState = me._states[name];
 
           me.onChange(me.currentState(), prev.name);
-          is(currentState.enter, 'Function') && currentState.enter(args);
+          is(currentState.enter, 'Function') && currentState.enter.apply(undefined, args);
           is(prev.leave, 'Function') && prev.leave();
         }
 

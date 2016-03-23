@@ -114,16 +114,20 @@
   });
 
   test('enter method is called with event method parameters', function () {
-    var _in;
+    var _in1, _in2;
     newStates.build()
       .state('simple', {
-        enter: function (data) { _in = data }
+        enter: function (str, data) {
+          _in1 = str;
+          _in2 = data;
+        }
       })
-    .event('fall', 'young', 'simple')
+    .event('withParams', 'young', 'simple')
     ;
 
-    newStates.fall({some: 'data'});
-    q.equal(_in, {'0': {some: 'data'}});
+    newStates.withParams('a string', {some: 'data'});
+    q.equal(_in1, 'a string');
+    q.equal(_in2, {some: 'data'});
   });
 
   test('does not overwrite existing properties', function () {
