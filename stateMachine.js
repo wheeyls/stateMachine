@@ -120,7 +120,7 @@
           var prev = me.currentState(true);
           currentState = me._states[name];
 
-          me.onChange(me.currentState(), prev.name);
+          me.onChange(me.currentState(), prev.name, args);
           is(currentState.enter, 'Function') && currentState.enter.apply(undefined, args);
           is(prev.leave, 'Function') && prev.leave();
         }
