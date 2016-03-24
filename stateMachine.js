@@ -121,6 +121,7 @@
           currentState = me._states[name];
 
           me.onChange(me.currentState(), prev.name, args);
+          args.push(me.currentState())
           is(currentState.enter, 'Function') && currentState.enter.apply(undefined, args);
           is(prev.leave, 'Function') && prev.leave();
         }
