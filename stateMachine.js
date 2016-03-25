@@ -121,9 +121,9 @@
           currentState = me._states[name];
 
           me.onChange(me.currentState(), prev.name, args);
-          args.push(me.currentState())
-          is(currentState.enter, 'Function') && currentState.enter.apply(undefined, args);
+          args.push(me.currentState());
           is(prev.leave, 'Function') && prev.leave();
+          is(currentState.enter, 'Function') && currentState.enter.apply(undefined, args);
         }
 
       , trigger: function (eventName, args) {
