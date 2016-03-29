@@ -113,6 +113,38 @@
     ok(_out);
   });
 
+  test('enter method is called with event method parameters', function () {
+    var _in1, _in2;
+    newStates.build()
+      .state('simple', {
+        enter: function (str, data) {
+          _in1 = str;
+          _in2 = data;
+        }
+      })
+    .event('withParams', 'young', 'simple')
+    ;
+
+    newStates.withParams('a string', {some: 'data'});
+    q.equal(_in1, 'a string');
+    q.equal(_in2, {some: 'data'});
+  });
+
+  test('eventName is added to enter method parameters', function () {
+    var _in;
+    newStates.build()
+      .state('simple', {
+        enter: function (str, data, name) {
+          _in = name;
+        }
+      })
+    .event('withParams', 'young', 'simple')
+    ;
+
+    newStates.withEventName('a string', {some: 'data'});
+    q.equal(_in, 'simple');
+  });
+
   test('does not overwrite existing properties', function () {
     var st = states(function () {
       this.state('simple');
